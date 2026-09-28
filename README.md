@@ -2,7 +2,7 @@
 
 |                    |                                             |
 | :----------------- | :------------------------------------------ |
-| `Tuesday 29 Sep`   | Released, in lab                            |
+| `Tuesday 29 Sep`   | Released, in class                          |
 | `Tuesday 6 Oct`    | Due at 2:30pm, the start of lab             |
 | `Tuesday 6 Oct`    | Verbal checks, during that same lab session |
 | Points             | 3                                           |
