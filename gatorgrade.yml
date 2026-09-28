@@ -1,0 +1,112 @@
+# Automated checks for Challenge 4. Run them yourself with:
+#
+#     uv run gatorgrade --config gatorgrade.yml
+#
+# These are the same checks that run on GitHub when you push. Results are
+# preliminary: the final grade is determined by the instructor.
+
+- description: "[RULES] Exactly one: true when one suspect is in the case file"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_exactly_one_is_true_when_one_name_is_true
+
+- description: "[RULES] Exactly one: false when the case file has no suspect"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_exactly_one_is_false_when_no_name_is_true
+
+- description: "[RULES] Exactly one: false when two suspects are in the case file"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_exactly_one_is_false_when_two_names_are_true
+
+- description: "[RULES] Exactly one is right in all sixteen models over four names"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_exactly_one_is_right_in_every_model
+
+- description: "[RULES] Exactly one of a single name is that name"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_exactly_one_of_a_single_name_is_that_name
+
+- description: "[TURNS] A card you hold is not in the case file"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_a_card_you_hold_is_not_in_the_case_file
+
+- description: "[TURNS] A card you are shown is not in the case file"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_a_card_you_are_shown_is_not_in_the_case_file
+
+- description: "[TURNS] A refuted suggestion rules out at least one of its three cards"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_a_refuted_suggestion_rules_out_at_least_one_card
+
+- description: "[TURNS] A refuted suggestion does not rule out all three"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_a_refuted_suggestion_does_not_rule_out_all_three
+
+- description: "[TURNS] A refuted suggestion allows none of its cards in the case file"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_a_refuted_suggestion_allows_none_of_its_cards
+
+- description: "[GAME] The rules alone settle nothing"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_the_rules_alone_settle_nothing
+
+- description: "[GAME] Turn 2 alone settles none of its three cards"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_a_refuted_suggestion_alone_settles_none_of_its_cards
+
+- description: "[GAME] No turn leaves the knowledge base contradicting itself"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_no_turn_leaves_the_knowledge_base_contradicting_itself
+
+- description: "[GAME] The weapon is known after turn 7"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_the_weapon_is_known_after_turn_7
+
+- description: "[GAME] The case is solved after turn 8"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_clue.py::test_the_case_is_solved_after_turn_8
+
+- description: "[STYLE] Code follows the Google Python style guide"
+  check: ExecuteCommand
+  options:
+    command: uv run ruff check src tests
+
+- description: "[STYLE] Type annotations check out"
+  check: ExecuteCommand
+  options:
+    command: uv run mypy src tests
+
+- src/clue.py:
+  - description: "[STYLE] No unfinished TODO markers are left in clue.py"
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+
+- docs/summary.md:
+  - description: "[REFLECTION] The reflection has no TODO markers left in it"
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+  - description: "[REFLECTION] The reflection meets the 200 word minimum"
+    check: CountFileWords
+    options:
+      count: 200
+      exact: false
