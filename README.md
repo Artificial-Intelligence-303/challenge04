@@ -24,15 +24,15 @@ and the game transcript are provided.
 
 ## The game
 
-The case file holds one suspect, one weapon, and one room. Every other card
-is dealt to a player.
+The same twelve cards as the game in class. The case file holds one suspect,
+one weapon, and one room. Every other card is dealt to a player.
 
 | Suspects | Weapons  | Rooms   |
 | :------- | :------- | :------ |
-| ada      | cable    | lab     |
-| alan     | keyboard | library |
-| edsger   | mug      | lounge  |
-| grace    | stapler  | office  |
+| babbage  | laptop   | attic   |
+| hamilton | mug      | garden  |
+| liskov   | pencil   | kitchen |
+| turing   | umbrella | library |
 
 Each card is one symbol, true when that card is in the case file.
 `TRANSCRIPT` in `src/clue.py` is what you saw during one game, as three

@@ -11,8 +11,8 @@ questions ask about is in its output.
 
 > **1. Explain turn 8.**
 >
-> Turn 8 shows you one card, the office. Four cards change status after it.
-> The office is the one you were shown. For each of the other three, name
+> Turn 8 shows you one card, the library. Four cards change status after it.
+> The library is the one you were shown. For each of the other three, name
 > the earlier sentences it follows from: which turn, or which half of
 > `exactly_one`. Nobody ever showed you any of those three cards.
 

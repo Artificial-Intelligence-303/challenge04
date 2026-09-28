@@ -49,7 +49,7 @@ class Sentence:
 
 
 class Symbol(Sentence):
-    """A single proposition, such as "the stapler is in the case file"."""
+    """A single proposition, such as "the pencil is in the case file"."""
 
     def __init__(self, name: str) -> None:
         """Name the proposition.

@@ -4,10 +4,11 @@
 `encode_turn`. Everything else is provided. Add anything else you use from
 `logic` to the import below.
 
-The case file holds one suspect, one weapon, and one room. Each card gets
+These are the twelve cards from the game in class. The case file holds
+one suspect, one weapon, and one room. Each card gets
 one symbol, and a symbol is true when that card is in the case file:
-`Symbol("grace")` means "Grace did it", `Symbol("cable")` means "it was the
-cable". You are one of the players, and `TRANSCRIPT` is everything you saw
+`Symbol("turing")` means "Turing did it", `Symbol("mug")` means "it was the
+mug". You are one of the players, and `TRANSCRIPT` is everything you saw
 happen in one game, in order.
 """
 
@@ -15,9 +16,9 @@ from dataclasses import dataclass
 
 from logic import And, Not, Sentence, Symbol, model_check
 
-SUSPECTS = ["ada", "alan", "edsger", "grace"]
-WEAPONS = ["cable", "keyboard", "mug", "stapler"]
-ROOMS = ["lab", "library", "lounge", "office"]
+SUSPECTS = ["babbage", "hamilton", "liskov", "turing"]
+WEAPONS = ["laptop", "mug", "pencil", "umbrella"]
+ROOMS = ["attic", "garden", "kitchen", "library"]
 CARDS = SUSPECTS + WEAPONS + ROOMS
 
 
@@ -51,14 +52,14 @@ class Turn:
 
 
 TRANSCRIPT = [
-    Turn("hold", ["ada", "stapler", "lab"]),
-    Turn("refuted", ["alan", "cable", "library"]),
-    Turn("shown", ["edsger"]),
-    Turn("refuted", ["grace", "mug", "office"]),
-    Turn("shown", ["keyboard"]),
-    Turn("shown", ["lounge"]),
-    Turn("shown", ["mug"]),
-    Turn("shown", ["office"]),
+    Turn("hold", ["babbage", "laptop", "attic"]),
+    Turn("refuted", ["liskov", "mug", "garden"]),
+    Turn("shown", ["hamilton"]),
+    Turn("refuted", ["turing", "pencil", "library"]),
+    Turn("shown", ["umbrella"]),
+    Turn("shown", ["kitchen"]),
+    Turn("shown", ["pencil"]),
+    Turn("shown", ["library"]),
 ]
 
 
