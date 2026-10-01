@@ -12,7 +12,8 @@ body:
         Challenge 4 asked for two functions in `src/clue.py`: `exactly_one`, which
         says the case file holds one card of a kind, and `encode_turn`, which turns
         one turn of the game into a sentence. Every line below is about one of
-        those two, or about something the student's own run showed them.
+        those two. Questions for each line, with what to listen for:
+        https://areweagentsyet.com/tl/verbal-checks-challenge-04/
   - type: input
     attributes:
       label: Student
@@ -23,10 +24,10 @@ body:
       label: Understanding
       description: Tick each line the student explained correctly, in their own words. Two or three questions is enough; no line needs their code open or a remembered number.
       options:
-        - label: "The rule they wrote. What the two halves of `exactly_one` each rule out, and what the knowledge base would get wrong without one of them."
-        - label: "The turn they encoded. Why a card you hold or are shown becomes a negation, and why a refuted suggestion is an \"or\" and not an \"and\"."
-        - label: "A deduction in their own run. Which earlier sentences a card's YES or NO follows from, when nobody ever showed that card."
-        - label: "Predicting a change. What a different turn, a missing rule, or a larger game would do to what is known or to how many models are checked."
+        - label: "The rule they wrote. What each half of `exactly_one` says (at least one; no two together), and what deleting either half would do."
+        - label: "The turn they encoded. Why a card you hold or are shown becomes NOT that card, and why a suggestion answered out of sight is an OR and not an AND."
+        - label: "A deduction. How a card gets settled by elimination or by an earlier suggestion, and what YES, NO and MAYBE mean about the possible case files."
+        - label: "Predicting a change. What a different turn order, one more card, or a new kind of turn would do to what is known or to the number of possible worlds."
   - type: dropdown
     attributes:
       label: Outcome
