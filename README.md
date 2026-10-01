@@ -43,6 +43,16 @@ kinds of turn:
 - **`refuted`**: another player's suggestion of three cards was refuted,
   and you did not see which card was shown.
 
+How your notebook from class maps onto the code:
+
+| In the game                                    | In the code                                      |
+| :--------------------------------------------- | :----------------------------------------------- |
+| A card you tick *In my hand*                   | `Turn("hold", [...])`                            |
+| *Shown to me by*, card written in              | `Turn("shown", [card])`                          |
+| A row where the card went to someone else      | `Turn("refuted", [suspect, weapon, room])`       |
+| "One of each kind" in the case file            | `game_rules()`, built from your `exactly_one`    |
+| The *Case file?* column: in, out, ?            | `status()`: YES, NO, MAYBE                       |
+
 ## What you implement
 
 Two functions in `src/clue.py`. Everything else is provided.
